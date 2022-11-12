@@ -1,0 +1,684 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>I Love You</title>
+    <!-- <meta name="Generator" content="EditPlus" />
+    <meta name="Author" content="" />
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" /> -->
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        background: #000;
+      }
+      canvas {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: -450px;
+      }
+      img {
+        position: absolute;
+        top: 243px;
+        left: 366px;
+        color: aliceblue;
+        width: 250px;
+        height: 250px;
+        border-radius: 100%;
+        box-shadow: 0px 0px 70px plum;
+      }
+      .pyro > .before,
+      .pyro > .after {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        pointer-events: none;
+        z-index: 99999999;
+        border-radius: 50%;
+        box-shadow: -120px -218.66667px blue, 248px -16.66667px #00ff84,
+          190px 16.33333px #002bff, -113px -308.66667px #ff009d,
+          -109px -287.66667px #ffb300, -50px -313.66667px #ff006e,
+          226px -31.66667px #ff4000, 180px -351.66667px #ff00d0,
+          -12px -338.66667px #00f6ff, 220px -388.66667px #99ff00,
+          -69px -27.66667px #ff0400, -111px -339.66667px #6200ff,
+          155px -237.66667px #00ddff, -152px -380.66667px #00ffd0,
+          -50px -37.66667px #00ffdd, -95px -175.66667px #a6ff00,
+          -88px 10.33333px #0d00ff, 112px -309.66667px #005eff,
+          69px -415.66667px #ff00a6, 168px -100.66667px #ff004c,
+          -244px 24.33333px #ff6600, 97px -325.66667px #ff0066,
+          -211px -182.66667px #00ffa2, 236px -126.66667px #b700ff,
+          140px -196.66667px #9000ff, 125px -175.66667px #00bbff,
+          118px -381.66667px #ff002f, 144px -111.66667px #ffae00,
+          36px -78.66667px #f600ff, -63px -196.66667px #c800ff,
+          -218px -227.66667px #d4ff00, -134px -377.66667px #ea00ff,
+          -36px -412.66667px #ff00d4, 209px -106.66667px #00fff2,
+          91px -278.66667px #000dff, -22px -191.66667px #9dff00,
+          139px -392.66667px #a6ff00, 56px -2.66667px #0099ff,
+          -156px -276.66667px #ea00ff, -163px -233.66667px #00fffb,
+          -238px -346.66667px #00ff73, 62px -363.66667px #0088ff,
+          244px -170.66667px #0062ff, 224px -142.66667px #b300ff,
+          141px -208.66667px #9000ff, 211px -285.66667px #ff6600,
+          181px -128.66667px #1e00ff, 90px -123.66667px #c800ff,
+          189px 70.33333px #00ffc8, -18px -383.66667px #00ff33,
+          100px -6.66667px #ff008c;
+        -moz-animation: 1s bang ease-out infinite backwards,
+          1s gravity ease-in infinite backwards,
+          5s position linear infinite backwards;
+        -webkit-animation: 1s bang ease-out infinite backwards,
+          1s gravity ease-in infinite backwards,
+          5s position linear infinite backwards;
+        -o-animation: 1s bang ease-out infinite backwards,
+          1s gravity ease-in infinite backwards,
+          5s position linear infinite backwards;
+        -ms-animation: 1s bang ease-out infinite backwards,
+          1s gravity ease-in infinite backwards,
+          5s position linear infinite backwards;
+        animation: 1s bang ease-out infinite backwards,
+          1s gravity ease-in infinite backwards,
+          5s position linear infinite backwards;
+      }
+
+      .pyro > .after {
+        -moz-animation-delay: 1.25s, 1.25s, 1.25s;
+        -webkit-animation-delay: 1.25s, 1.25s, 1.25s;
+        -o-animation-delay: 1.25s, 1.25s, 1.25s;
+        -ms-animation-delay: 1.25s, 1.25s, 1.25s;
+        animation-delay: 1.25s, 1.25s, 1.25s;
+        -moz-animation-duration: 1.25s, 1.25s, 6.25s;
+        -webkit-animation-duration: 1.25s, 1.25s, 6.25s;
+        -o-animation-duration: 1.25s, 1.25s, 6.25s;
+        -ms-animation-duration: 1.25s, 1.25s, 6.25s;
+        animation-duration: 1.25s, 1.25s, 6.25s;
+      }
+
+      @-webkit-keyframes bang {
+        from {
+          box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white;
+        }
+      }
+      @-moz-keyframes bang {
+        from {
+          box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white;
+        }
+      }
+      @-o-keyframes bang {
+        from {
+          box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white;
+        }
+      }
+      @-ms-keyframes bang {
+        from {
+          box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white;
+        }
+      }
+      @keyframes bang {
+        from {
+          box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
+            0 0 white, 0 0 white, 0 0 white, 0 0 white;
+        }
+      }
+      @-webkit-keyframes gravity {
+        to {
+          transform: translateY(200px);
+          -moz-transform: translateY(200px);
+          -webkit-transform: translateY(200px);
+          -o-transform: translateY(200px);
+          -ms-transform: translateY(200px);
+          opacity: 0;
+        }
+      }
+      @-moz-keyframes gravity {
+        to {
+          transform: translateY(200px);
+          -moz-transform: translateY(200px);
+          -webkit-transform: translateY(200px);
+          -o-transform: translateY(200px);
+          -ms-transform: translateY(200px);
+          opacity: 0;
+        }
+      }
+      @-o-keyframes gravity {
+        to {
+          transform: translateY(200px);
+          -moz-transform: translateY(200px);
+          -webkit-transform: translateY(200px);
+          -o-transform: translateY(200px);
+          -ms-transform: translateY(200px);
+          opacity: 0;
+        }
+      }
+      @-ms-keyframes gravity {
+        to {
+          transform: translateY(200px);
+          -moz-transform: translateY(200px);
+          -webkit-transform: translateY(200px);
+          -o-transform: translateY(200px);
+          -ms-transform: translateY(200px);
+          opacity: 0;
+        }
+      }
+      @keyframes gravity {
+        to {
+          transform: translateY(200px);
+          -moz-transform: translateY(200px);
+          -webkit-transform: translateY(200px);
+          -o-transform: translateY(200px);
+          -ms-transform: translateY(200px);
+          opacity: 0;
+        }
+      }
+      @-webkit-keyframes position {
+        0%,
+        19.9% {
+          margin-top: 10%;
+          margin-left: 40%;
+        }
+
+        20%,
+        39.9% {
+          margin-top: 30%;
+          margin-left: 30%;
+        }
+
+        40%,
+        59.9% {
+          margin-top: 20%;
+          margin-left: 70%;
+        }
+
+        60%,
+        79.9% {
+          margin-top: 30%;
+          margin-left: 20%;
+        }
+
+        80%,
+        99.9% {
+          margin-top: 30%;
+          margin-left: 70%;
+        }
+      }
+      @-moz-keyframes position {
+        0%,
+        19.9% {
+          margin-top: 10%;
+          margin-left: 40%;
+        }
+
+        20%,
+        39.9% {
+          margin-top: 30%;
+          margin-left: 30%;
+        }
+
+        40%,
+        59.9% {
+          margin-top: 20%;
+          margin-left: 70%;
+        }
+
+        60%,
+        79.9% {
+          margin-top: 30%;
+          margin-left: 20%;
+        }
+
+        80%,
+        99.9% {
+          margin-top: 30%;
+          margin-left: 90%;
+        }
+      }
+      @-o-keyframes position {
+        0%,
+        19.9% {
+          margin-top: 10%;
+          margin-left: 40%;
+        }
+
+        20%,
+        39.9% {
+          margin-top: 30%;
+          margin-left: 30%;
+        }
+
+        40%,
+        59.9% {
+          margin-top: 20%;
+          margin-left: 70%;
+        }
+
+        60%,
+        79.9% {
+          margin-top: 30%;
+          margin-left: 20%;
+        }
+
+        80%,
+        99.9% {
+          margin-top: 30%;
+          margin-left: 70%;
+        }
+      }
+      @-ms-keyframes position {
+        0%,
+        19.9% {
+          margin-top: 10%;
+          margin-left: 40%;
+        }
+
+        20%,
+        39.9% {
+          margin-top: 30%;
+          margin-left: 20%;
+        }
+
+        40%,
+        59.9% {
+          margin-top: 20%;
+          margin-left: 70%;
+        }
+
+        60%,
+        79.9% {
+          margin-top: 30%;
+          margin-left: 20%;
+        }
+
+        80%,
+        99.9% {
+          margin-top: 30%;
+          margin-left: 70%;
+        }
+      }
+      @keyframes position {
+        0%,
+        19.9% {
+          margin-top: 10%;
+          margin-left: 40%;
+        }
+
+        20%,
+        39.9% {
+          margin-top: 30%;
+          margin-left: 30%;
+        }
+
+        40%,
+        59.9% {
+          margin-top: 20%;
+          margin-left: 70%;
+        }
+
+        60%,
+        79.9% {
+          margin-top: 30%;
+          margin-left: 20%;
+        }
+
+        80%,
+        99.9% {
+          margin-top: 30%;
+          margin-left: 70%;
+        }
+      }
+
+      /* @media only screen and (max-width: 321px) {
+  img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: aliceblue;
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    box-shadow: 0px 0px 70px red;
+  }
+} */
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <div class="div2">
+        <div class="pyro">
+          <div class="before"></div>
+          <div class="after"></div>
+        </div>
+        <div id="heart"></div>
+        <img
+          class="img"
+          src="
+        https://scontent.fhan15-1.fna.fbcdn.net/v/t39.30808-6/276173261_3126341184330369_5519499341073505108_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=s2NinGa-MIwAX-1gVVO&_nc_ht=scontent.fhan15-1.fna&oh=00_AfDqnn1xBoz_geItPKeYD8_sfdSY4SK3wzJ-FBGEKr-3Ug&oe=6372E79F
+        "
+          alt=""
+        />
+        <canvas id="pinkboard"></canvas>
+      </div>
+    </div>
+    <script>
+      /*
+       * Settings
+       */
+      var settings = {
+        particles: {
+          length: 500, // maximum amount of particles
+          duration: 2, // particle duration in sec
+          velocity: 100, // particle velocity in pixels/sec
+          effect: -0.75, // play with this for a nice effect
+          size: 30, // particle size in pixels
+        },
+      };
+
+      /*
+       * RequestAnimationFrame polyfill by Erik Möller
+       */
+      (function () {
+        var b = 0;
+        var c = ["ms", "moz", "webkit", "o"];
+        for (var a = 0; a < c.length && !window.requestAnimationFrame; ++a) {
+          window.requestAnimationFrame = window[c[a] + "RequestAnimationFrame"];
+          window.cancelAnimationFrame =
+            window[c[a] + "CancelAnimationFrame"] ||
+            window[c[a] + "CancelRequestAnimationFrame"];
+        }
+        if (!window.requestAnimationFrame) {
+          window.requestAnimationFrame = function (h, e) {
+            var d = new Date().getTime();
+            var f = Math.max(0, 16 - (d - b));
+            var g = window.setTimeout(function () {
+              h(d + f);
+            }, f);
+            b = d + f;
+            return g;
+          };
+        }
+        if (!window.cancelAnimationFrame) {
+          window.cancelAnimationFrame = function (d) {
+            clearTimeout(d);
+          };
+        }
+      })();
+
+      /*
+       * Point class
+       */
+      var Point = (function () {
+        function Point(x, y) {
+          this.x = typeof x !== "undefined" ? x : 0;
+          this.y = typeof y !== "undefined" ? y : 0;
+        }
+        Point.prototype.clone = function () {
+          return new Point(this.x, this.y);
+        };
+        Point.prototype.length = function (length) {
+          if (typeof length == "undefined")
+            return Math.sqrt(this.x * this.x + this.y * this.y);
+          this.normalize();
+          this.x *= length;
+          this.y *= length;
+          return this;
+        };
+        Point.prototype.normalize = function () {
+          var length = this.length();
+          this.x /= length;
+          this.y /= length;
+          return this;
+        };
+        return Point;
+      })();
+
+      /*
+       * Particle class
+       */
+      var Particle = (function () {
+        function Particle() {
+          this.position = new Point();
+          this.velocity = new Point();
+          this.acceleration = new Point();
+          this.age = 0;
+        }
+        Particle.prototype.initialize = function (x, y, dx, dy) {
+          this.position.x = x;
+          this.position.y = y;
+          this.velocity.x = dx;
+          this.velocity.y = dy;
+          this.acceleration.x = dx * settings.particles.effect;
+          this.acceleration.y = dy * settings.particles.effect;
+          this.age = 0;
+        };
+        Particle.prototype.update = function (deltaTime) {
+          this.position.x += this.velocity.x * deltaTime;
+          this.position.y += this.velocity.y * deltaTime;
+          this.velocity.x += this.acceleration.x * deltaTime;
+          this.velocity.y += this.acceleration.y * deltaTime;
+          this.age += deltaTime;
+        };
+        Particle.prototype.draw = function (context, image) {
+          function ease(t) {
+            return --t * t * t + 1;
+          }
+          var size = image.width * ease(this.age / settings.particles.duration);
+          context.globalAlpha = 1 - this.age / settings.particles.duration;
+          context.drawImage(
+            image,
+            this.position.x - size / 2,
+            this.position.y - size / 2,
+            size,
+            size
+          );
+        };
+        return Particle;
+      })();
+
+      /*
+       * ParticlePool class
+       */
+      var ParticlePool = (function () {
+        var particles,
+          firstActive = 0,
+          firstFree = 0,
+          duration = settings.particles.duration;
+
+        function ParticlePool(length) {
+          // create and populate particle pool
+          particles = new Array(length);
+          for (var i = 0; i < particles.length; i++)
+            particles[i] = new Particle();
+        }
+        ParticlePool.prototype.add = function (x, y, dx, dy) {
+          particles[firstFree].initialize(x, y, dx, dy);
+
+          // handle circular queue
+          firstFree++;
+          if (firstFree == particles.length) firstFree = 0;
+          if (firstActive == firstFree) firstActive++;
+          if (firstActive == particles.length) firstActive = 0;
+        };
+        ParticlePool.prototype.update = function (deltaTime) {
+          var i;
+
+          // update active particles
+          if (firstActive < firstFree) {
+            for (i = firstActive; i < firstFree; i++)
+              particles[i].update(deltaTime);
+          }
+          if (firstFree < firstActive) {
+            for (i = firstActive; i < particles.length; i++)
+              particles[i].update(deltaTime);
+            for (i = 0; i < firstFree; i++) particles[i].update(deltaTime);
+          }
+
+          // remove inactive particles
+          while (
+            particles[firstActive].age >= duration &&
+            firstActive != firstFree
+          ) {
+            firstActive++;
+            if (firstActive == particles.length) firstActive = 0;
+          }
+        };
+        ParticlePool.prototype.draw = function (context, image) {
+          // draw active particles
+          if (firstActive < firstFree) {
+            for (i = firstActive; i < firstFree; i++)
+              particles[i].draw(context, image);
+          }
+          if (firstFree < firstActive) {
+            for (i = firstActive; i < particles.length; i++)
+              particles[i].draw(context, image);
+            for (i = 0; i < firstFree; i++) particles[i].draw(context, image);
+          }
+        };
+        return ParticlePool;
+      })();
+
+      /*
+       * Putting it all together
+       */
+      (function (canvas) {
+        var context = canvas.getContext("2d"),
+          particles = new ParticlePool(settings.particles.length),
+          particleRate =
+            settings.particles.length / settings.particles.duration, // particles/sec
+          time;
+
+        // get point on heart with -PI <= t <= PI
+        function pointOnHeart(t) {
+          return new Point(
+            160 * Math.pow(Math.sin(t), 3),
+            130 * Math.cos(t) -
+              50 * Math.cos(2 * t) -
+              20 * Math.cos(3 * t) -
+              10 * Math.cos(4 * t) +
+              25
+          );
+        }
+
+        // creating the particle image using a dummy canvas
+        var image = (function () {
+          var canvas = document.createElement("canvas"),
+            context = canvas.getContext("2d");
+          canvas.width = settings.particles.size;
+          canvas.height = settings.particles.size;
+          // helper function to create the path
+          function to(t) {
+            var point = pointOnHeart(t);
+            point.x =
+              settings.particles.size / 2 +
+              (point.x * settings.particles.size) / 350;
+            point.y =
+              settings.particles.size / 2 -
+              (point.y * settings.particles.size) / 350;
+            return point;
+          }
+          // create the path
+          context.beginPath();
+          var t = -Math.PI;
+          var point = to(t);
+          context.moveTo(point.x, point.y);
+          while (t < Math.PI) {
+            t += 0.01; // baby steps!
+            point = to(t);
+            context.lineTo(point.x, point.y);
+          }
+          context.closePath();
+          // create the fill
+          context.fillStyle = "plum";
+          context.fill();
+          // create the image
+          var image = new Image();
+          image.src = canvas.toDataURL();
+          return image;
+        })();
+
+        // render that thing!
+        function render() {
+          // next animation frame
+          requestAnimationFrame(render);
+
+          // update time
+          var newTime = new Date().getTime() / 1000,
+            deltaTime = newTime - (time || newTime);
+          time = newTime;
+
+          // clear canvas
+          context.clearRect(0, 0, canvas.width, canvas.height);
+
+          // create new particles
+          var amount = particleRate * deltaTime;
+          for (var i = 0; i < amount; i++) {
+            var pos = pointOnHeart(Math.PI - 2 * Math.PI * Math.random());
+            var dir = pos.clone().length(settings.particles.velocity);
+            particles.add(
+              canvas.width / 2 + pos.x,
+              canvas.height / 2 - pos.y,
+              dir.x,
+              -dir.y
+            );
+          }
+
+          // update and draw particles
+          particles.update(deltaTime);
+          particles.draw(context, image);
+        }
+
+        // handle (re-)sizing of the canvas
+        function onResize() {
+          canvas.width = canvas.clientWidth;
+          canvas.height = canvas.clientHeight;
+        }
+        window.onresize = onResize;
+
+        // delay rendering bootstrap
+        setTimeout(function () {
+          onResize();
+          render();
+        }, 10);
+      })(document.getElementById("pinkboard"));
+    </script>
+  </body>
+</html>
